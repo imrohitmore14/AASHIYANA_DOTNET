@@ -1,0 +1,63 @@
+﻿@model IEnumerable<RolesAuth.Models.Hotel>
+
+@{
+    ViewData["Title"] = "Hotels";
+}
+
+<h1>Hotels</h1>
+
+<p>
+    <button class="btn btn-outline-info">
+        <a asp-action="Create" style="color: black;">Add Hotel</a>
+    </button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                    <button class=" btn btn-outline-warning">
+                        <a asp-action="Edit" asp-route-id="@item.HotelId" style="color: black;">Edit</a>
+                </button> |
+                    <button class="btn btn-outline-success">
+                        <a asp-action="Details" asp-route-id="@item.HotelId" style="color: black;">Details</a>
+                </button> |
+                    <button class="btn btn-outline-danger">
+                        <a asp-action="Delete" asp-route-id="@item.HotelId" style="color: black;">Delete</a>
+                </button> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+

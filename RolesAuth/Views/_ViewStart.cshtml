@@ -1,0 +1,20 @@
+﻿@{
+    //Layout = "_Layout";
+
+    if (User.IsInRole("Admin"))
+    {
+        Layout = "/Views/Shared/_AdminDashboard.cshtml";
+    }
+    else if (User.IsInRole("Hotel"))
+    {
+        Layout = "/Views/Shared/_HotelDashboard.cshtml";
+    }
+    else if (User.IsInRole("User"))
+    {
+        Layout = "/Views/Shared/_UserDashboard.cshtml";
+    }
+    else
+    {
+        Layout = "/Views/Shared/_Layout.cshtml";
+    }
+}
